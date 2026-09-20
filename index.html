@@ -1,0 +1,3676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="AetherForge — Cyberpunk calisthenics, martial arts mastery, AI coaching and progression."
+  >
+
+  <meta name="theme-color" content="#05070b">
+
+  <title>AetherForge — Forge Your Mastery</title>
+
+  <!--
+    FILE CONNECTIONS
+    =================
+    style.css  → complete visual system
+    app.js     → complete frontend application logic
+    server.js  → backend API used by app.js
+  -->
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================================================
+       BACKGROUND SYSTEM
+  ========================================================== -->
+
+  <div id="backgroundFX" aria-hidden="true">
+
+    <div class="grid-overlay"></div>
+
+    <div class="orb orb-cyan"></div>
+    <div class="orb orb-purple"></div>
+    <div class="orb orb-pink"></div>
+
+    <div class="particles">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       CUSTOM CURSOR
+  ========================================================== -->
+
+  <div id="cursorGlow" aria-hidden="true"></div>
+
+
+  <!-- =========================================================
+       APP SHELL
+  ========================================================== -->
+
+  <div id="app">
+
+    <!-- =======================================================
+         NAVBAR
+    ======================================================== -->
+
+    <header class="navbar">
+
+      <div class="nav-inner">
+
+        <button
+          class="brand"
+          type="button"
+          onclick="showPage('home')"
+          aria-label="AetherForge home"
+        >
+
+          <span class="brand-mark">
+            ⚡
+          </span>
+
+          <span class="brand-text">
+            AETHER<span>FORGE</span>
+          </span>
+
+        </button>
+
+
+        <nav
+          class="nav-links"
+          id="desktopNav"
+          aria-label="Main navigation"
+        >
+
+          <button
+            class="nav-link active"
+            data-page="home"
+            type="button"
+            onclick="showPage('home')"
+          >
+            HOME
+          </button>
+
+          <button
+            class="nav-link"
+            data-page="dashboard"
+            type="button"
+            onclick="showPage('dashboard')"
+          >
+            DASHBOARD
+          </button>
+
+          <button
+            class="nav-link"
+            data-page="calisthenics"
+            type="button"
+            onclick="showPage('calisthenics')"
+          >
+            CALISTHENICS
+          </button>
+
+          <button
+            class="nav-link"
+            data-page="dojo"
+            type="button"
+            onclick="showPage('dojo')"
+          >
+            DOJO
+          </button>
+
+          <button
+            class="nav-link"
+            data-page="coach"
+            type="button"
+            onclick="showPage('coach')"
+          >
+            AI COACH
+          </button>
+
+          <button
+            class="nav-link"
+            data-page="roadmap"
+            type="button"
+            onclick="showPage('roadmap')"
+          >
+            ROADMAP
+          </button>
+
+          <button
+            class="nav-link"
+            data-page="nutrition"
+            type="button"
+            onclick="showPage('nutrition')"
+          >
+            NUTRITION
+          </button>
+
+          <button
+            class="nav-link"
+            data-page="leaderboard"
+            type="button"
+            onclick="showPage('leaderboard')"
+          >
+            LEADERBOARD
+          </button>
+
+          <button
+            class="nav-link"
+            data-page="shop"
+            type="button"
+            onclick="showPage('shop')"
+          >
+            SHOP
+          </button>
+
+          <button
+            class="nav-link"
+            data-page="profile"
+            type="button"
+            onclick="showPage('profile')"
+          >
+            PROFILE
+          </button>
+
+          <button
+            class="nav-link admin-nav-link"
+            data-page="admin"
+            type="button"
+            onclick="showPage('admin')"
+          >
+            ADMIN
+          </button>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+          <div class="nav-stats">
+
+            <span>
+              🔥
+              <strong id="navStreak">1</strong>
+            </span>
+
+            <span>
+              🏆
+              <strong id="navTrophies">120</strong>
+            </span>
+
+          </div>
+
+
+          <button
+            class="avatar-button"
+            type="button"
+            onclick="showPage('profile')"
+            aria-label="Open profile"
+          >
+            <span id="navAvatar">
+              AF
+            </span>
+          </button>
+
+
+          <button
+            class="mobile-menu-button"
+            type="button"
+            onclick="toggleMenu()"
+            aria-label="Open navigation menu"
+          >
+            ☰
+          </button>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- =======================================================
+         MAIN CONTENT
+    ======================================================== -->
+
+    <main id="mainContent">
+
+
+      <!-- =====================================================
+           HOME
+      ====================================================== -->
+
+      <section
+        id="home"
+        class="page active"
+      >
+
+        <div class="hero container">
+
+          <div class="hero-copy">
+
+            <div class="eyebrow">
+              ◈ A NEW ERA OF HUMAN MASTERY
+            </div>
+
+            <h1 class="hero-title">
+              FORGE
+              <span>YOUR</span>
+              <em>LIMITS.</em>
+            </h1>
+
+            <p class="hero-subtitle">
+              A cyberpunk training academy for calisthenics,
+              martial arts, intelligent coaching and long-term
+              physical mastery.
+            </p>
+
+
+            <div class="hero-actions">
+
+              <button
+                class="btn btn-primary btn-large magnetic"
+                type="button"
+                onclick="startOnboarding()"
+              >
+                BEGIN YOUR PATH
+                <span>→</span>
+              </button>
+
+              <button
+                class="btn btn-outline btn-large"
+                type="button"
+                onclick="showPage('calisthenics')"
+              >
+                EXPLORE THE FORGE
+              </button>
+
+            </div>
+
+
+            <div class="hero-metrics">
+
+              <div>
+                <strong>∞</strong>
+                <span>PROGRESSION</span>
+              </div>
+
+              <div>
+                <strong>AI</strong>
+                <span>COACHING</span>
+              </div>
+
+              <div>
+                <strong>24/7</strong>
+                <span>ACCESS</span>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="hero-visual">
+
+            <div class="energy-ring ring-one"></div>
+            <div class="energy-ring ring-two"></div>
+            <div class="energy-ring ring-three"></div>
+
+            <div class="hero-core">
+
+              <div class="core-symbol">
+                ⚡
+              </div>
+
+              <div class="core-label">
+                AETHER
+              </div>
+
+              <div class="core-subtitle">
+                FORGE
+              </div>
+
+            </div>
+
+
+            <div class="floating-stat stat-one">
+              <span>🔥</span>
+              <div>
+                <strong>STREAK</strong>
+                <small id="heroStreak">1 DAY</small>
+              </div>
+            </div>
+
+
+            <div class="floating-stat stat-two">
+              <span>🏆</span>
+              <div>
+                <strong>TROPHIES</strong>
+                <small id="heroTrophies">120</small>
+              </div>
+            </div>
+
+
+            <div class="floating-stat stat-three">
+              <span>◈</span>
+              <div>
+                <strong>LEVEL</strong>
+                <small id="heroLevel">01</small>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="container">
+
+          <div class="section-header compact">
+
+            <div class="eyebrow">
+              THE FORGE SYSTEM
+            </div>
+
+            <h2 class="title">
+              TRAIN.
+              <span class="gradient-text">ADAPT.</span>
+              MASTER.
+            </h2>
+
+            <p class="subtitle">
+              Everything you need to build strength, learn skills,
+              develop martial arts fundamentals and stay consistent.
+            </p>
+
+          </div>
+
+
+          <div class="grid-4 feature-grid">
+
+            <button
+              class="card feature-card card-hover"
+              type="button"
+              onclick="showPage('calisthenics')"
+            >
+
+              <div class="feature-icon cyan">
+                ◈
+              </div>
+
+              <div class="eyebrow">
+                SYSTEM 01
+              </div>
+
+              <h3>
+                CALISTHENICS
+              </h3>
+
+              <p>
+                Progressive bodyweight strength from absolute
+                beginner foundations to advanced skills.
+              </p>
+
+              <span class="feature-arrow">
+                ENTER PATH →
+              </span>
+
+            </button>
+
+
+            <button
+              class="card feature-card card-hover"
+              type="button"
+              onclick="showPage('dojo')"
+            >
+
+              <div class="feature-icon pink">
+                🥋
+              </div>
+
+              <div class="eyebrow">
+                SYSTEM 02
+              </div>
+
+              <h3>
+                MARTIAL ARTS
+              </h3>
+
+              <p>
+                Structured fundamentals for striking,
+                grappling, movement and conditioning.
+              </p>
+
+              <span class="feature-arrow">
+                ENTER DOJO →
+              </span>
+
+            </button>
+
+
+            <button
+              class="card feature-card card-hover"
+              type="button"
+              onclick="showPage('coach')"
+            >
+
+              <div class="feature-icon purple">
+                ⚡
+              </div>
+
+              <div class="eyebrow">
+                SYSTEM 03
+              </div>
+
+              <h3>
+                AI COACH
+              </h3>
+
+              <p>
+                Personalized training, recovery and nutrition
+                guidance through the Aether coaching system.
+              </p>
+
+              <span class="feature-arrow">
+                CONSULT AI →
+              </span>
+
+            </button>
+
+
+            <button
+              class="card feature-card card-hover"
+              type="button"
+              onclick="showPage('leaderboard')"
+            >
+
+              <div class="feature-icon lime">
+                🏆
+              </div>
+
+              <div class="eyebrow">
+                SYSTEM 04
+              </div>
+
+              <h3>
+                COMPETE
+              </h3>
+
+              <p>
+                Earn trophies, build streaks and track your
+                progression against the Forge community.
+              </p>
+
+              <span class="feature-arrow">
+                VIEW RANKINGS →
+              </span>
+
+            </button>
+
+          </div>
+
+
+          <div class="home-quote card">
+
+            <div class="quote-mark">
+              “
+            </div>
+
+            <p>
+              The forge does not create the warrior.
+              It reveals what consistent effort was capable of building.
+            </p>
+
+            <span>
+              — AETHERFORGE CODEX
+            </span>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           ONBOARDING
+      ====================================================== -->
+
+      <section
+        id="onboarding"
+        class="page"
+      >
+
+        <div class="container onboarding-container">
+
+          <div class="section-header">
+
+            <div class="eyebrow">
+              INITIALIZATION PROTOCOL
+            </div>
+
+            <h2 class="title">
+              BEGIN YOUR
+              <span class="gradient-text">
+                PATH.
+              </span>
+            </h2>
+
+            <p class="subtitle">
+              Configure your Forge profile and receive a
+              starting progression path.
+            </p>
+
+          </div>
+
+
+          <div class="step-indicator">
+
+            <span id="stepDot1" class="step-dot active">
+              01
+            </span>
+
+            <i></i>
+
+            <span id="stepDot2" class="step-dot">
+              02
+            </span>
+
+            <i></i>
+
+            <span id="stepDot3" class="step-dot">
+              03
+            </span>
+
+            <i></i>
+
+            <span id="stepDot4" class="step-dot">
+              04
+            </span>
+
+            <i></i>
+
+            <span id="stepDot5" class="step-dot">
+              05
+            </span>
+
+          </div>
+
+
+          <div class="onboarding-card card">
+
+
+            <!-- STEP 1 -->
+
+            <div
+              id="formStep1"
+              class="form-step active"
+            >
+
+              <div class="form-step-header">
+
+                <span>
+                  STEP 01
+                </span>
+
+                <h3>
+                  Physical Profile
+                </h3>
+
+                <p>
+                  Tell the Forge about your current baseline.
+                </p>
+
+              </div>
+
+
+              <div class="form-grid">
+
+                <label class="field">
+                  <span>AGE</span>
+                  <input
+                    id="age"
+                    type="number"
+                    min="13"
+                    max="100"
+                    placeholder="Age"
+                  >
+                </label>
+
+
+                <label class="field">
+                  <span>GENDER</span>
+
+                  <select id="gender">
+
+                    <option value="">
+                      Select
+                    </option>
+
+                    <option value="male">
+                      Male
+                    </option>
+
+                    <option value="female">
+                      Female
+                    </option>
+
+                    <option value="other">
+                      Other
+                    </option>
+
+                    <option value="prefer_not">
+                      Prefer not to say
+                    </option>
+
+                  </select>
+
+                </label>
+
+
+                <label class="field">
+                  <span>HEIGHT (CM)</span>
+
+                  <input
+                    id="height"
+                    type="number"
+                    min="100"
+                    max="250"
+                    placeholder="Height"
+                  >
+
+                </label>
+
+
+                <label class="field">
+                  <span>WEIGHT (KG)</span>
+
+                  <input
+                    id="weight"
+                    type="number"
+                    min="30"
+                    max="300"
+                    placeholder="Weight"
+                  >
+
+                </label>
+
+              </div>
+
+
+              <div class="form-actions">
+
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                  onclick="nextOnboarding()"
+                >
+                  CONTINUE →
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <!-- STEP 2 -->
+
+            <div
+              id="formStep2"
+              class="form-step"
+            >
+
+              <div class="form-step-header">
+
+                <span>
+                  STEP 02
+                </span>
+
+                <h3>
+                  Current Level
+                </h3>
+
+                <p>
+                  Choose the level that best describes your
+                  current training ability.
+                </p>
+
+              </div>
+
+
+              <div class="choice-grid">
+
+                <button
+                  class="choice"
+                  type="button"
+                  onclick="selectChoice(this,'fitness')"
+                >
+                  <strong>BEGINNER</strong>
+                  <span>
+                    New to structured training.
+                  </span>
+                </button>
+
+
+                <button
+                  class="choice"
+                  type="button"
+                  onclick="selectChoice(this,'fitness')"
+                >
+                  <strong>INTERMEDIATE</strong>
+                  <span>
+                    Consistent training experience.
+                  </span>
+                </button>
+
+
+                <button
+                  class="choice"
+                  type="button"
+                  onclick="selectChoice(this,'fitness')"
+                >
+                  <strong>ADVANCED</strong>
+                  <span>
+                    Strong technical foundation.
+                  </span>
+                </button>
+
+
+                <button
+                  class="choice"
+                  type="button"
+                  onclick="selectChoice(this,'fitness')"
+                >
+                  <strong>ELITE</strong>
+                  <span>
+                    Highly developed strength and skills.
+                  </span>
+                </button>
+
+              </div>
+
+
+              <div class="form-actions">
+
+                <button
+                  class="btn btn-outline"
+                  type="button"
+                  onclick="prevOnboarding()"
+                >
+                  ← BACK
+                </button>
+
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                  onclick="nextOnboarding()"
+                >
+                  CONTINUE →
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <!-- STEP 3 -->
+
+            <div
+              id="formStep3"
+              class="form-step"
+            >
+
+              <div class="form-step-header">
+
+                <span>
+                  STEP 03
+                </span>
+
+                <h3>
+                  Primary Mission
+                </h3>
+
+                <p>
+                  Your goal shapes the initial recommendation.
+                </p>
+
+              </div>
+
+
+              <div class="choice-grid">
+
+                <button
+                  class="choice"
+                  type="button"
+                  onclick="selectChoice(this,'goal')"
+                >
+                  <strong>STRENGTH</strong>
+                  <span>
+                    Build measurable physical strength.
+                  </span>
+                </button>
+
+
+                <button
+                  class="choice"
+                  type="button"
+                  onclick="selectChoice(this,'goal')"
+                >
+                  <strong>SKILL</strong>
+                  <span>
+                    Master advanced movement skills.
+                  </span>
+                </button>
+
+
+                <button
+                  class="choice"
+                  type="button"
+                  onclick="selectChoice(this,'goal')"
+                >
+                  <strong>FAT LOSS</strong>
+                  <span>
+                    Improve body composition and conditioning.
+                  </span>
+                </button>
+
+
+                <button
+                  class="choice"
+                  type="button"
+                  onclick="selectChoice(this,'goal')"
+                >
+                  <strong>MARTIAL ARTS</strong>
+                  <span>
+                    Develop martial arts fundamentals.
+                  </span>
+                </button>
+
+
+                <button
+                  class="choice"
+                  type="button"
+                  onclick="selectChoice(this,'goal')"
+                >
+                  <strong>HYBRID</strong>
+                  <span>
+                    Combine strength, skills and martial arts.
+                  </span>
+                </button>
+
+              </div>
+
+
+              <div class="form-actions">
+
+                <button
+                  class="btn btn-outline"
+                  type="button"
+                  onclick="prevOnboarding()"
+                >
+                  ← BACK
+                </button>
+
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                  onclick="nextOnboarding()"
+                >
+                  CONTINUE →
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <!-- STEP 4 -->
+
+            <div
+              id="formStep4"
+              class="form-step"
+            >
+
+              <div class="form-step-header">
+
+                <span>
+                  STEP 04
+                </span>
+
+                <h3>
+                  Training Environment
+                </h3>
+
+                <p>
+                  Configure the equipment and availability
+                  you currently have.
+                </p>
+
+              </div>
+
+
+              <div class="choice-grid">
+
+                <button
+                  class="choice"
+                  type="button"
+                  onclick="selectChoice(this,'equipment')"
+                >
+                  <strong>NONE</strong>
+                  <span>
+                    Bodyweight-only environment.
+                  </span>
+                </button>
+
+
+                <button
+                  class="choice"
+                  type="button"
+                  onclick="selectChoice(this,'equipment')"
+                >
+                  <strong>HOME</strong>
+                  <span>
+                    Basic home equipment.
+                  </span>
+                </button>
+
+
+                <button
+                  class="choice"
+                  type="button"
+                  onclick="selectChoice(this,'equipment')"
+                >
+                  <strong>GYM</strong>
+                  <span>
+                    Full gym access.
+                  </span>
+                </button>
+
+              </div>
+
+
+              <div class="form-grid single-row">
+
+                <label class="field">
+
+                  <span>
+                    TRAINING DAYS / WEEK
+                  </span>
+
+                  <select id="trainingDays">
+
+                    <option value="2">
+                      2 days
+                    </option>
+
+                    <option value="3">
+                      3 days
+                    </option>
+
+                    <option value="4" selected>
+                      4 days
+                    </option>
+
+                    <option value="5">
+                      5 days
+                    </option>
+
+                    <option value="6">
+                      6 days
+                    </option>
+
+                    <option value="7">
+                      7 days
+                    </option>
+
+                  </select>
+
+                </label>
+
+              </div>
+
+
+              <div class="form-actions">
+
+                <button
+                  class="btn btn-outline"
+                  type="button"
+                  onclick="prevOnboarding()"
+                >
+                  ← BACK
+                </button>
+
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                  onclick="nextOnboarding()"
+                >
+                  GENERATE PATH →
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <!-- STEP 5 -->
+
+            <div
+              id="formStep5"
+              class="form-step"
+            >
+
+              <div class="form-step-header">
+
+                <span>
+                  STEP 05
+                </span>
+
+                <h3>
+                  Limitations & Path
+                </h3>
+
+                <p>
+                  Add anything the Forge should account for.
+                </p>
+
+              </div>
+
+
+              <label class="field">
+
+                <span>
+                  INJURIES / LIMITATIONS
+                </span>
+
+                <textarea
+                  id="limitations"
+                  placeholder="Optional — describe relevant limitations..."
+                ></textarea>
+
+              </label>
+
+
+              <div
+                id="generatedPath"
+                class="generated-path"
+              >
+
+                <div class="loading-line">
+                  PATH GENERATION READY
+                </div>
+
+              </div>
+
+
+              <div class="form-actions">
+
+                <button
+                  class="btn btn-outline"
+                  type="button"
+                  onclick="prevOnboarding()"
+                >
+                  ← BACK
+                </button>
+
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                  onclick="finishOnboarding()"
+                >
+                  ENTER THE FORGE ⚡
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           DASHBOARD
+      ====================================================== -->
+
+      <section
+        id="dashboard"
+        class="page"
+      >
+
+        <div class="container section">
+
+          <div class="dashboard-top">
+
+            <div>
+
+              <div class="eyebrow">
+                COMMAND CENTER
+              </div>
+
+              <h2 class="title">
+                WELCOME BACK,
+                <span class="gradient-text">
+                  FORGER.
+                </span>
+              </h2>
+
+              <p class="subtitle">
+                Your current mission:
+                <strong id="dashboardGoal">
+                  HYBRID
+                </strong>
+              </p>
+
+            </div>
+
+
+            <button
+              class="btn btn-primary"
+              type="button"
+              onclick="startWorkoutSession()"
+            >
+              START TRAINING ⚡
+            </button>
+
+          </div>
+
+
+          <div class="dashboard-stats grid-4">
+
+            <div class="card stat-card glow-cyan">
+
+              <div class="stat-label">
+                CURRENT STREAK
+              </div>
+
+              <div class="stat-value">
+                🔥
+                <span id="streakValue">
+                  1
+                </span>
+              </div>
+
+              <div class="stat-caption">
+                DAYS
+              </div>
+
+            </div>
+
+
+            <div class="card stat-card glow-pink">
+
+              <div class="stat-label">
+                TROPHIES
+              </div>
+
+              <div class="stat-value">
+                🏆
+                <span id="trophyValue">
+                  120
+                </span>
+              </div>
+
+              <div class="stat-caption">
+                EARNED
+              </div>
+
+            </div>
+
+
+            <div class="card stat-card glow-purple">
+
+              <div class="stat-label">
+                LEVEL
+              </div>
+
+              <div class="stat-value">
+                <span id="levelValue">
+                  01
+                </span>
+              </div>
+
+              <div class="stat-caption">
+                FORGER
+              </div>
+
+            </div>
+
+
+            <div class="card stat-card glow-lime">
+
+              <div class="stat-label">
+                TOTAL XP
+              </div>
+
+              <div class="stat-value">
+                <span id="dashboardXP">
+                  240
+                </span>
+              </div>
+
+              <div class="stat-caption">
+                EXPERIENCE
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="dashboard-grid">
+
+
+            <!-- LEVEL CARD -->
+
+            <div class="card level-card">
+
+              <div class="panel-title">
+
+                <h3>
+                  FORGE LEVEL
+                </h3>
+
+                <span>
+                  PROGRESSION
+                </span>
+
+              </div>
+
+
+              <div class="level-display">
+
+                <div
+                  id="levelCircle"
+                  class="level-circle"
+                >
+                  01
+                </div>
+
+                <div class="level-info">
+
+                  <strong>
+                    INITIATE
+                  </strong>
+
+                  <p>
+                    Continue completing structured training
+                    to unlock your next progression tier.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="xp-track">
+
+                <div
+                  id="xpBar"
+                  class="xp-bar"
+                  style="width:48%;"
+                ></div>
+
+              </div>
+
+              <div
+                id="xpText"
+                class="xp-text"
+              >
+                240 / 500 XP
+              </div>
+
+            </div>
+
+
+            <!-- TODAY -->
+
+            <div class="card today-card">
+
+              <div class="panel-title">
+
+                <h3>
+                  TODAY'S PROTOCOL
+                </h3>
+
+                <span>
+                  READY
+                </span>
+
+              </div>
+
+
+              <div class="protocol-item">
+
+                <div class="protocol-icon">
+                  ◈
+                </div>
+
+                <div>
+
+                  <strong>
+                    Foundation Strength
+                  </strong>
+
+                  <p>
+                    Push, pull, squat and core fundamentals.
+                  </p>
+
+                </div>
+
+                <button
+                  type="button"
+                  onclick="completeWorkout(this,'Foundation Strength')"
+                >
+                  COMPLETE
+                </button>
+
+              </div>
+
+
+              <div class="protocol-item">
+
+                <div class="protocol-icon">
+                  ◌
+                </div>
+
+                <div>
+
+                  <strong>
+                    Mobility Reset
+                  </strong>
+
+                  <p>
+                    Short mobility and recovery sequence.
+                  </p>
+
+                </div>
+
+                <button
+                  type="button"
+                  onclick="completeWorkout(this,'Mobility Reset')"
+                >
+                  COMPLETE
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="card weekly-progress">
+
+            <div class="panel-title">
+
+              <h3>
+                WEEKLY PROGRESS
+              </h3>
+
+              <span>
+                CONSISTENCY
+              </span>
+
+            </div>
+
+
+            <div class="week-days">
+
+              <div class="day completed">
+                <span>M</span>
+                <b>✓</b>
+              </div>
+
+              <div class="day">
+                <span>T</span>
+                <b>—</b>
+              </div>
+
+              <div class="day">
+                <span>W</span>
+                <b>—</b>
+              </div>
+
+              <div class="day">
+                <span>T</span>
+                <b>—</b>
+              </div>
+
+              <div class="day">
+                <span>F</span>
+                <b>—</b>
+              </div>
+
+              <div class="day">
+                <span>S</span>
+                <b>—</b>
+              </div>
+
+              <div class="day">
+                <span>S</span>
+                <b>—</b>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           CALISTHENICS
+      ====================================================== -->
+
+      <section
+        id="calisthenics"
+        class="page"
+      >
+
+        <div class="container section">
+
+          <div class="section-header">
+
+            <div class="eyebrow">
+              BODYWEIGHT MASTERY SYSTEM
+            </div>
+
+            <h2 class="title">
+              CALISTHENICS
+              <span class="gradient-text">
+                PATH.
+              </span>
+            </h2>
+
+            <p class="subtitle">
+              Build movement quality first, then progressively
+              develop strength, control and advanced skills.
+            </p>
+
+          </div>
+
+
+          <div class="path-levels">
+
+            <button
+              class="path-level active"
+              type="button"
+              onclick="selectPathLevel(this,'foundation')"
+            >
+              <span>01</span>
+              FOUNDATION
+            </button>
+
+            <button
+              class="path-level"
+              type="button"
+              onclick="selectPathLevel(this,'intermediate')"
+            >
+              <span>02</span>
+              INTERMEDIATE
+            </button>
+
+            <button
+              class="path-level"
+              type="button"
+              onclick="selectPathLevel(this,'advanced')"
+            >
+              <span>03</span>
+              ADVANCED
+            </button>
+
+            <button
+              class="path-level"
+              type="button"
+              onclick="selectPathLevel(this,'elite')"
+            >
+              <span>04</span>
+              ELITE
+            </button>
+
+          </div>
+
+
+          <div class="grid-3 curriculum-grid">
+
+
+            <article class="card curriculum-card">
+
+              <div class="curriculum-icon">
+                ◈
+              </div>
+
+              <div class="eyebrow">
+                FOUNDATIONS
+              </div>
+
+              <h3>
+                Movement Base
+              </h3>
+
+              <p>
+                Joint preparation, bracing, body awareness,
+                controlled squatting and basic pushing and pulling.
+              </p>
+
+              <ul class="lesson-list">
+
+                <li>
+                  ✓ Scapular control
+                </li>
+
+                <li>
+                  ✓ Hollow body
+                </li>
+
+                <li>
+                  ✓ Push-up mechanics
+                </li>
+
+                <li>
+                  ✓ Assisted pulling
+                </li>
+
+              </ul>
+
+              <button
+                class="btn btn-small"
+                type="button"
+                onclick="openLesson('Movement Base')"
+              >
+                OPEN LESSON
+              </button>
+
+            </article>
+
+
+            <article class="card curriculum-card">
+
+              <div class="curriculum-icon">
+                ↑
+              </div>
+
+              <div class="eyebrow">
+                PUSH
+              </div>
+
+              <h3>
+                Push Architecture
+              </h3>
+
+              <p>
+                Develop pressing strength through controlled
+                horizontal and vertical progressions.
+              </p>
+
+              <ul class="lesson-list">
+
+                <li>
+                  ✓ Push-up
+                </li>
+
+                <li>
+                  ✓ Pike push-up
+                </li>
+
+                <li>
+                  ✓ Dips
+                </li>
+
+                <li>
+                  ✓ Handstand preparation
+                </li>
+
+              </ul>
+
+              <button
+                class="btn btn-small"
+                type="button"
+                onclick="openLesson('Push Architecture')"
+              >
+                OPEN LESSON
+              </button>
+
+            </article>
+
+
+            <article class="card curriculum-card">
+
+              <div class="curriculum-icon">
+                ↓
+              </div>
+
+              <div class="eyebrow">
+                PULL
+              </div>
+
+              <h3>
+                Pull Architecture
+              </h3>
+
+              <p>
+                Build pulling capacity toward strict pull-ups,
+                muscle-up foundations and lever progressions.
+              </p>
+
+              <ul class="lesson-list">
+
+                <li>
+                  ✓ Scapular pulls
+                </li>
+
+                <li>
+                  ✓ Rows
+                </li>
+
+                <li>
+                  ✓ Pull-ups
+                </li>
+
+                <li>
+                  ✓ Tuck lever
+                </li>
+
+              </ul>
+
+              <button
+                class="btn btn-small"
+                type="button"
+                onclick="openLesson('Pull Architecture')"
+              >
+                OPEN LESSON
+              </button>
+
+            </article>
+
+
+            <article class="card curriculum-card">
+
+              <div class="curriculum-icon">
+                ◇
+              </div>
+
+              <div class="eyebrow">
+                LEGS
+              </div>
+
+              <h3>
+                Lower Foundation
+              </h3>
+
+              <p>
+                Squatting, hinging, unilateral strength,
+                calves and athletic movement capacity.
+              </p>
+
+              <ul class="lesson-list">
+
+                <li>
+                  ✓ Squat
+                </li>
+
+                <li>
+                  ✓ Split squat
+                </li>
+
+                <li>
+                  ✓ Hinge
+                </li>
+
+                <li>
+                  ✓ Calf raise
+                </li>
+
+              </ul>
+
+              <button
+                class="btn btn-small"
+                type="button"
+                onclick="openLesson('Lower Foundation')"
+              >
+                OPEN LESSON
+              </button>
+
+            </article>
+
+
+            <article class="card curriculum-card">
+
+              <div class="curriculum-icon">
+                ◎
+              </div>
+
+              <div class="eyebrow">
+                CORE
+              </div>
+
+              <h3>
+                Core Control
+              </h3>
+
+              <p>
+                Build trunk stiffness and control for stronger
+                movement across the entire system.
+              </p>
+
+              <ul class="lesson-list">
+
+                <li>
+                  ✓ Dead bug
+                </li>
+
+                <li>
+                  ✓ Plank
+                </li>
+
+                <li>
+                  ✓ Hollow hold
+                </li>
+
+                <li>
+                  ✓ L-sit progression
+                </li>
+
+              </ul>
+
+              <button
+                class="btn btn-small"
+                type="button"
+                onclick="openLesson('Core Control')"
+              >
+                OPEN LESSON
+              </button>
+
+            </article>
+
+
+            <article class="card curriculum-card skill-card">
+
+              <div class="curriculum-icon">
+                ✦
+              </div>
+
+              <div class="eyebrow">
+                SKILLS
+              </div>
+
+              <h3>
+                Advanced Movement
+              </h3>
+
+              <p>
+                Progress toward handstands, planche,
+                front lever, muscle-up and human flag.
+              </p>
+
+              <ul class="lesson-list">
+
+                <li>
+                  ◇ Handstand
+                </li>
+
+                <li>
+                  ◇ Planche
+                </li>
+
+                <li>
+                  ◇ Front lever
+                </li>
+
+                <li>
+                  ◇ Muscle-up
+                </li>
+
+              </ul>
+
+              <button
+                class="btn btn-small"
+                type="button"
+                onclick="openLesson('Advanced Movement')"
+              >
+                OPEN LESSON
+              </button>
+
+            </article>
+
+          </div>
+
+
+          <div class="card safety-panel">
+
+            <strong>
+              ⚠ TRAINING SAFETY
+            </strong>
+
+            <p>
+              Progressions should be scaled to current ability.
+              Stop when technique deteriorates or pain occurs.
+              Educational material does not replace qualified
+              coaching or medical advice.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           DOJO
+      ====================================================== -->
+
+      <section
+        id="dojo"
+        class="page"
+      >
+
+        <div class="container section">
+
+          <div class="section-header">
+
+            <div class="eyebrow">
+              MARTIAL ARTS MASTERY SYSTEM
+            </div>
+
+            <h2 class="title">
+              THE
+              <span class="gradient-text">
+                DOJO.
+              </span>
+            </h2>
+
+            <p class="subtitle">
+              Explore structured fundamentals across striking,
+              grappling, movement and conditioning disciplines.
+            </p>
+
+          </div>
+
+
+          <div class="dojo-tabs">
+
+            <button
+              class="dojo-tab active"
+              type="button"
+              onclick="selectDojoArt(this,'boxing')"
+            >
+              BOXING
+            </button>
+
+            <button
+              class="dojo-tab"
+              type="button"
+              onclick="selectDojoArt(this,'muay-thai')"
+            >
+              MUAY THAI
+            </button>
+
+            <button
+              class="dojo-tab"
+              type="button"
+              onclick="selectDojoArt(this,'bjj')"
+            >
+              BJJ
+            </button>
+
+            <button
+              class="dojo-tab"
+              type="button"
+              onclick="selectDojoArt(this,'wrestling')"
+            >
+              WRESTLING
+            </button>
+
+            <button
+              class="dojo-tab"
+              type="button"
+              onclick="selectDojoArt(this,'kickboxing')"
+            >
+              KICKBOXING
+            </button>
+
+                      </div>
+
+
+          <div class="dojo-content">
+
+            <div class="card dojo-hero-card">
+
+              <div class="dojo-art-icon" id="dojoArtIcon">
+                🥊
+              </div>
+
+              <div class="dojo-art-info">
+
+                <div class="eyebrow" id="dojoArtEyebrow">
+                  STRIKING SYSTEM
+                </div>
+
+                <h3 id="dojoArtTitle">
+                  BOXING
+                </h3>
+
+                <p id="dojoArtDescription">
+                  Develop stance, footwork, defensive movement,
+                  distance management and fundamental punches.
+                </p>
+
+                <div class="dojo-tags" id="dojoTags">
+
+                  <span>FOOTWORK</span>
+                  <span>DEFENSE</span>
+                  <span>STRIKING</span>
+                  <span>CONDITIONING</span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="grid-3 dojo-lessons">
+
+              <article class="card lesson-card">
+
+                <div class="lesson-number">
+                  01
+                </div>
+
+                <div class="eyebrow">
+                  FUNDAMENTALS
+                </div>
+
+                <h3 id="dojoLesson1Title">
+                  Stance & Footwork
+                </h3>
+
+                <p id="dojoLesson1Text">
+                  Learn balanced positioning, movement,
+                  distance and basic defensive principles.
+                </p>
+
+                <button
+                  class="btn btn-small"
+                  type="button"
+                  onclick="openLesson('Dojo Fundamentals')"
+                >
+                  START LESSON →
+                </button>
+
+              </article>
+
+
+              <article class="card lesson-card">
+
+                <div class="lesson-number">
+                  02
+                </div>
+
+                <div class="eyebrow">
+                  TECHNIQUE
+                </div>
+
+                <h3 id="dojoLesson2Title">
+                  Basic Combinations
+                </h3>
+
+                <p id="dojoLesson2Text">
+                  Practice simple combinations with emphasis
+                  on control, balance and clean technique.
+                </p>
+
+                <button
+                  class="btn btn-small"
+                  type="button"
+                  onclick="openLesson('Dojo Technique')"
+                >
+                  START LESSON →
+                </button>
+
+              </article>
+
+
+              <article class="card lesson-card">
+
+                <div class="lesson-number">
+                  03
+                </div>
+
+                <div class="eyebrow">
+                  CONDITIONING
+                </div>
+
+                <h3 id="dojoLesson3Title">
+                  Fight Conditioning
+                </h3>
+
+                <p id="dojoLesson3Text">
+                  Build general conditioning through controlled
+                  intervals, movement and technical repetition.
+                </p>
+
+                <button
+                  class="btn btn-small"
+                  type="button"
+                  onclick="openLesson('Dojo Conditioning')"
+                >
+                  START LESSON →
+                </button>
+
+              </article>
+
+            </div>
+
+          </div>
+
+
+          <div class="card safety-panel">
+
+            <strong>
+              ⚠ MARTIAL ARTS SAFETY
+            </strong>
+
+            <p>
+              Practice technical material in a safe environment.
+              Sparring and live grappling should be supervised by
+              qualified instructors with appropriate protective
+              equipment and rules.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           AI COACH
+      ====================================================== -->
+
+      <section
+        id="coach"
+        class="page"
+      >
+
+        <div class="container section">
+
+          <div class="section-header">
+
+            <div class="eyebrow">
+              AETHER INTELLIGENCE SYSTEM
+            </div>
+
+            <h2 class="title">
+              AI
+              <span class="gradient-text">
+                COACH.
+              </span>
+            </h2>
+
+            <p class="subtitle">
+              Ask the Forge for training, progression,
+              recovery and general fitness guidance.
+            </p>
+
+          </div>
+
+
+          <div class="coach-layout">
+
+
+            <div class="card coach-profile">
+
+              <div class="ai-orb">
+                ⚡
+              </div>
+
+              <div class="eyebrow">
+                AETHER CORE
+              </div>
+
+              <h3>
+                FORGE AI
+              </h3>
+
+              <p>
+                Your digital training assistant.
+              </p>
+
+              <div class="ai-status">
+                <span></span>
+                ONLINE
+              </div>
+
+            </div>
+
+
+            <div class="card chat-card">
+
+              <div class="chat-header">
+
+                <div>
+                  <div class="eyebrow">
+                    AETHER / AI COACH
+                  </div>
+
+                  <strong>
+                    Training Console
+                  </strong>
+                </div>
+
+                <button
+                  class="chat-clear"
+                  type="button"
+                  onclick="clearChat()"
+                >
+                  CLEAR
+                </button>
+
+              </div>
+
+
+              <div
+                id="chatMessages"
+                class="chat-messages"
+              >
+
+                <div class="chat-message ai">
+
+                  <div class="message-avatar">
+                    ⚡
+                  </div>
+
+                  <div class="message-content">
+
+                    <span class="message-name">
+                      AETHER
+                    </span>
+
+                    <p>
+                      Systems online. Ask me about your training,
+                      exercise progressions, recovery or nutrition.
+                    </p>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <form
+                id="chatForm"
+                class="chat-input"
+                onsubmit="sendChat(event)"
+              >
+
+                <input
+                  id="chatInput"
+                  type="text"
+                  placeholder="Ask Aether something..."
+                  autocomplete="off"
+                  required
+                >
+
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                >
+                  SEND →
+                </button>
+
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           ROADMAP
+      ====================================================== -->
+
+      <section
+        id="roadmap"
+        class="page"
+      >
+
+        <div class="container section">
+
+          <div class="section-header">
+
+            <div class="eyebrow">
+              LONG TERM PROGRESSION
+            </div>
+
+            <h2 class="title">
+              YOUR
+              <span class="gradient-text">
+                ROADMAP.
+              </span>
+            </h2>
+
+            <p class="subtitle">
+              A modular progression system designed around
+              consistency and gradual skill development.
+            </p>
+
+          </div>
+
+
+          <div class="roadmap">
+
+            <div class="roadmap-line"></div>
+
+
+            <article class="roadmap-node completed">
+
+              <div class="roadmap-marker">
+                ✓
+              </div>
+
+              <div class="card roadmap-card">
+
+                <div class="eyebrow">
+                  PHASE 01
+                </div>
+
+                <h3>
+                  FOUNDATION
+                </h3>
+
+                <p>
+                  Establish movement quality, consistency,
+                  mobility and basic strength.
+                </p>
+
+                <span class="status-badge">
+                  ACTIVE
+                </span>
+
+              </div>
+
+            </article>
+
+
+            <article class="roadmap-node">
+
+              <div class="roadmap-marker">
+                02
+              </div>
+
+              <div class="card roadmap-card">
+
+                <div class="eyebrow">
+                  PHASE 02
+                </div>
+
+                <h3>
+                  CAPACITY
+                </h3>
+
+                <p>
+                  Increase training volume and develop
+                  stronger pushing, pulling, leg and core patterns.
+                </p>
+
+                <span class="status-badge locked">
+                  LOCKED
+                </span>
+
+              </div>
+
+            </article>
+
+
+            <article class="roadmap-node">
+
+              <div class="roadmap-marker">
+                03
+              </div>
+
+              <div class="card roadmap-card">
+
+                <div class="eyebrow">
+                  PHASE 03
+                </div>
+
+                <h3>
+                  SKILL
+                </h3>
+
+                <p>
+                  Begin advanced bodyweight skills and
+                  more technical martial arts combinations.
+                </p>
+
+                <span class="status-badge locked">
+                  LOCKED
+                </span>
+
+              </div>
+
+            </article>
+
+
+            <article class="roadmap-node">
+
+              <div class="roadmap-marker">
+                04
+              </div>
+
+              <div class="card roadmap-card">
+
+                <div class="eyebrow">
+                  PHASE 04
+                </div>
+
+                <h3>
+                  MASTERY
+                </h3>
+
+                <p>
+                  Combine strength, skill, conditioning and
+                  technical practice into a sustainable system.
+                </p>
+
+                <span class="status-badge locked">
+                  LOCKED
+                </span>
+
+              </div>
+
+            </article>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           NUTRITION
+      ====================================================== -->
+
+      <section
+        id="nutrition"
+        class="page"
+      >
+
+        <div class="container section">
+
+          <div class="section-header">
+
+            <div class="eyebrow">
+              FUEL SYSTEM
+            </div>
+
+            <h2 class="title">
+              FORGE
+              <span class="gradient-text">
+                NUTRITION.
+              </span>
+            </h2>
+
+            <p class="subtitle">
+              Simple nutrition principles for supporting
+              training, recovery and consistent energy.
+            </p>
+
+          </div>
+
+
+          <div class="grid-3 nutrition-grid">
+
+
+            <article class="card nutrition-card">
+
+              <div class="nutrition-icon">
+                ◉
+              </div>
+
+              <div class="eyebrow">
+                PROTEIN
+              </div>
+
+              <h3>
+                BUILD
+              </h3>
+
+              <p>
+                Include protein-rich foods regularly throughout
+                the day to support muscle repair and adaptation.
+              </p>
+
+              <div class="nutrition-examples">
+                Eggs · Fish · Dairy · Legumes · Meat · Tofu
+              </div>
+
+            </article>
+
+
+            <article class="card nutrition-card">
+
+              <div class="nutrition-icon">
+                ⚡
+              </div>
+
+              <div class="eyebrow">
+                ENERGY
+              </div>
+
+              <h3>
+                FUEL
+              </h3>
+
+              <p>
+                Match your overall food intake to your activity,
+                training demands and personal goals.
+              </p>
+
+              <div class="nutrition-examples">
+                Rice · Oats · Potatoes · Fruit · Whole grains
+              </div>
+
+            </article>
+
+
+            <article class="card nutrition-card">
+
+              <div class="nutrition-icon">
+                💧
+              </div>
+
+              <div class="eyebrow">
+                HYDRATION
+              </div>
+
+              <h3>
+                RECOVER
+              </h3>
+
+              <p>
+                Maintain regular fluid intake and pay attention
+                to hydration during longer or hotter sessions.
+              </p>
+
+              <div class="nutrition-examples">
+                Water · Electrolytes · Fruits · Soups
+              </div>
+
+            </article>
+
+          </div>
+
+
+          <div class="card calculator-card">
+
+            <div class="panel-title">
+
+              <div>
+                <div class="eyebrow">
+                  ESTIMATION TOOL
+                </div>
+
+                <h3>
+                  CALORIE ESTIMATOR
+                </h3>
+              </div>
+
+              <span>
+                PERSONAL DATA
+              </span>
+
+            </div>
+
+
+            <div class="form-grid">
+
+              <label class="field">
+
+                <span>
+                  AGE
+                </span>
+
+                <input
+                  id="nutritionAge"
+                  type="number"
+                  placeholder="Age"
+                >
+
+              </label>
+
+
+              <label class="field">
+
+                <span>
+                  HEIGHT (CM)
+                </span>
+
+                <input
+                  id="nutritionHeight"
+                  type="number"
+                  placeholder="Height"
+                >
+
+              </label>
+
+
+              <label class="field">
+
+                <span>
+                  WEIGHT (KG)
+                </span>
+
+                <input
+                  id="nutritionWeight"
+                  type="number"
+                  placeholder="Weight"
+                >
+
+              </label>
+
+
+              <label class="field">
+
+                <span>
+                  ACTIVITY
+                </span>
+
+                <select id="nutritionActivity">
+
+                  <option value="1.2">
+                    Sedentary
+                  </option>
+
+                  <option value="1.375">
+                    Light
+                  </option>
+
+                  <option value="1.55" selected>
+                    Moderate
+                  </option>
+
+                  <option value="1.725">
+                    High
+                  </option>
+
+                  <option value="1.9">
+                    Very High
+                  </option>
+
+                </select>
+
+              </label>
+
+            </div>
+
+
+            <button
+              class="btn btn-primary"
+              type="button"
+              onclick="calculateCalories()"
+            >
+              CALCULATE →
+            </button>
+
+
+            <div
+              id="calorieResult"
+              class="calculator-result"
+            >
+              Enter your information to generate an estimate.
+            </div>
+
+          </div>
+
+
+          <div class="card safety-panel">
+
+            <strong>
+              ⚠ NUTRITION NOTE
+            </strong>
+
+            <p>
+              Calorie estimates are approximate and should not be
+              treated as medical or dietary prescriptions. Individual
+              needs vary with health, activity, goals and other factors.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           LEADERBOARD
+      ====================================================== -->
+
+      <section
+        id="leaderboard"
+        class="page"
+      >
+
+        <div class="container section">
+
+          <div class="section-header">
+
+            <div class="eyebrow">
+              FORGE NETWORK
+            </div>
+
+            <h2 class="title">
+              LEADER
+              <span class="gradient-text">
+                BOARD.
+              </span>
+            </h2>
+
+            <p class="subtitle">
+              Track public progression points and community activity.
+            </p>
+
+          </div>
+
+
+          <div class="leaderboard-controls">
+
+            <button
+              class="filter-button active"
+              type="button"
+              onclick="filterLeaderboard(this,'weekly')"
+            >
+              WEEKLY
+            </button>
+
+            <button
+              class="filter-button"
+              type="button"
+              onclick="filterLeaderboard(this,'monthly')"
+            >
+              MONTHLY
+            </button>
+
+            <button
+              class="filter-button"
+              type="button"
+              onclick="filterLeaderboard(this,'alltime')"
+            >
+              ALL TIME
+            </button>
+
+          </div>
+
+
+          <div class="card leaderboard-card">
+
+            <div class="leaderboard-header">
+
+              <span>
+                RANK
+              </span>
+
+              <span>
+                FORGER
+              </span>
+
+              <span>
+                LEVEL
+              </span>
+
+              <span>
+                XP
+              </span>
+
+            </div>
+
+
+            <div
+              id="leaderboardRows"
+              class="leaderboard-rows"
+            >
+
+              <div class="leader-row current">
+
+                <span class="rank">
+                  01
+                </span>
+
+                <span class="leader-name">
+                  <span class="mini-avatar">
+                    AF
+                  </span>
+                  YOU
+                </span>
+
+                <span>
+                  01
+                </span>
+
+                <strong>
+                  240
+                </strong>
+
+              </div>
+
+
+              <div class="leader-row">
+
+                <span class="rank">
+                  02
+                </span>
+
+                <span class="leader-name">
+                  <span class="mini-avatar">
+                    NX
+                  </span>
+                  NEXUS
+                </span>
+
+                <span>
+                  07
+                </span>
+
+                <strong>
+                  8420
+                </strong>
+
+              </div>
+
+
+              <div class="leader-row">
+
+                <span class="rank">
+                  03
+                </span>
+
+                <span class="leader-name">
+                  <span class="mini-avatar">
+                    KR
+                  </span>
+                  KRYPT
+                </span>
+
+                <span>
+                  06
+                </span>
+
+                <strong>
+                  7190
+                </strong>
+
+              </div>
+
+
+              <div class="leader-row">
+
+                <span class="rank">
+                  04
+                </span>
+
+                <span class="leader-name">
+                  <span class="mini-avatar">
+                    VX
+                  </span>
+                  VOIDX
+                </span>
+
+                <span>
+                  05
+                </span>
+
+                <strong>
+                  6310
+                </strong>
+
+              </div>
+
+
+              <div class="leader-row">
+
+                <span class="rank">
+                  05
+                </span>
+
+                <span class="leader-name">
+                  <span class="mini-avatar">
+                    ZR
+                  </span>
+                  ZERON
+                </span>
+
+                <span>
+                  04
+                </span>
+
+                <strong>
+                  5280
+                </strong>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           SHOP
+      ====================================================== -->
+
+      <section
+        id="shop"
+        class="page"
+      >
+
+        <div class="container section">
+
+          <div class="section-header">
+
+            <div class="eyebrow">
+              FORGE EQUIPMENT
+            </div>
+
+            <h2 class="title">
+              THE
+              <span class="gradient-text">
+                ARMORY.
+              </span>
+            </h2>
+
+            <p class="subtitle">
+              Equipment concepts for building a compact training
+              environment at home or in a dedicated gym.
+            </p>
+
+          </div>
+
+
+          <div class="grid-3 shop-grid">
+
+
+            <article class="card product-card">
+
+              <div class="product-visual">
+                ◈
+              </div>
+
+              <div class="eyebrow">
+                STRENGTH
+              </div>
+
+              <h3>
+                FORGE PULL-UP BAR
+              </h3>
+
+              <p>
+                A conceptual equipment listing for pull-up,
+                hanging and bodyweight pulling practice.
+              </p>
+
+              <div class="product-bottom">
+
+                <strong>
+                  120 XP
+                </strong>
+
+                <button
+                  class="btn btn-small"
+                  type="button"
+                  onclick="showToast('Shop checkout is a demo in this frontend.')"
+                >
+                  VIEW
+                </button>
+
+              </div>
+
+            </article>
+
+
+            <article class="card product-card">
+
+              <div class="product-visual">
+                ◇
+              </div>
+
+              <div class="eyebrow">
+                MOBILITY
+              </div>
+
+              <h3>
+                AETHER MOBILITY KIT
+              </h3>
+
+              <p>
+                A conceptual recovery and mobility equipment
+                bundle for warm-ups and cooldowns.
+              </p>
+
+              <div class="product-bottom">
+
+                <strong>
+                  90 XP
+                </strong>
+
+                <button
+                  class="btn btn-small"
+                  type="button"
+                  onclick="showToast('Shop checkout is a demo in this frontend.')"
+                >
+                  VIEW
+                </button>
+
+              </div>
+
+            </article>
+
+
+            <article class="card product-card">
+
+              <div class="product-visual">
+                ⚡
+              </div>
+
+              <div class="eyebrow">
+                TRAINING
+              </div>
+
+              <h3>
+                FORGE FLOOR KIT
+              </h3>
+
+              <p>
+                A conceptual training surface package for
+                bodyweight, mobility and conditioning sessions.
+              </p>
+
+              <div class="product-bottom">
+
+                <strong>
+                  150 XP
+                </strong>
+
+                <button
+                  class="btn btn-small"
+                  type="button"
+                  onclick="showToast('Shop checkout is a demo in this frontend.')"
+                >
+                  VIEW
+                </button>
+
+              </div>
+
+            </article>
+
+          </div>
+
+
+          <div class="card shop-note">
+
+            <strong>
+              ARMORY STATUS
+            </strong>
+
+            <p>
+              These are frontend demonstration products.
+              No real payment or order processing is connected.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           PROFILE
+      ====================================================== -->
+
+      <section
+        id="profile"
+        class="page"
+      >
+
+        <div class="container section">
+
+          <div class="profile-header card">
+
+            <div class="profile-avatar">
+              <span id="profileAvatar">
+                AF
+              </span>
+            </div>
+
+            <div class="profile-main">
+
+              <div class="eyebrow">
+                FORGE IDENTITY
+              </div>
+
+              <h2 id="profileName">
+                FORGER
+              </h2>
+
+              <p id="profileMission">
+                HYBRID PATH
+              </p>
+
+              <div class="profile-badges">
+
+                <span>
+                  INITIATE
+                </span>
+
+                <span>
+                  120 TROPHIES
+                </span>
+
+                <span>
+                  1 DAY STREAK
+                </span>
+
+              </div>
+
+            </div>
+
+            <button
+              class="btn btn-outline"
+              type="button"
+              onclick="editProfile()"
+            >
+              EDIT PROFILE
+            </button>
+
+          </div>
+
+
+          <div class="grid-2 profile-grid">
+
+
+            <div class="card">
+
+              <div class="panel-title">
+
+                <h3>
+                  PHYSICAL PROFILE
+                </h3>
+
+                <span>
+                  DATA
+                </span>
+
+              </div>
+
+
+              <div class="profile-data">
+
+                <div>
+                  <span>AGE</span>
+                  <strong id="profileAge">—</strong>
+                </div>
+
+                <div>
+                  <span>HEIGHT</span>
+                  <strong id="profileHeight">—</strong>
+                </div>
+
+                <div>
+                  <span>WEIGHT</span>
+                  <strong id="profileWeight">—</strong>
+                </div>
+
+                <div>
+                  <span>TRAINING</span>
+                  <strong id="profileDays">4 DAYS</strong>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="card">
+
+              <div class="panel-title">
+
+                <h3>
+                  PATH SETTINGS
+                </h3>
+
+                <span>
+                  CURRENT
+                </span>
+
+              </div>
+
+
+              <div class="profile-data">
+
+                <div>
+                  <span>LEVEL</span>
+                  <strong id="profileFitness">BEGINNER</strong>
+                </div>
+
+                <div>
+                  <span>MISSION</span>
+                  <strong id="profileGoal">HYBRID</strong>
+                </div>
+
+                <div>
+                  <span>EQUIPMENT</span>
+                  <strong id="profileEquipment">NONE</strong>
+                </div>
+
+                <div>
+                  <span>XP</span>
+                  <strong id="profileXP">240</strong>
+                </div>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+          <div class="card danger-zone">
+
+            <div>
+
+              <div class="eyebrow">
+                LOCAL DATA
+              </div>
+
+              <h3>
+                RESET FORGE PROFILE
+              </h3>
+
+              <p>
+                Remove locally stored profile progress from this browser.
+              </p>
+
+            </div>
+
+            <button
+              class="btn btn-danger"
+              type="button"
+              onclick="resetForge()"
+            >
+              RESET DATA
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           ADMIN
+      ====================================================== -->
+
+      <section
+        id="admin"
+        class="page"
+      >
+
+        <div class="container section">
+
+          <div class="section-header">
+
+            <div class="eyebrow">
+              SYSTEM ADMINISTRATION
+            </div>
+
+            <h2 class="title">
+              FORGE
+              <span class="gradient-text">
+                CONTROL.
+              </span>
+            </h2>
+
+            <p class="subtitle">
+              Frontend administration console for demonstration
+              data and application state.
+            </p>
+
+          </div>
+
+
+          <div class="grid-3 admin-grid">
+
+
+            <div class="card admin-card">
+
+              <div class="eyebrow">
+                USERS
+              </div>
+
+              <strong>
+                1,284
+              </strong>
+
+              <span>
+                REGISTERED PROFILES
+              </span>
+
+            </div>
+
+
+            <div class="card admin-card">
+
+              <div class="eyebrow">
+                SESSIONS
+              </div>
+
+              <strong>
+                428
+              </strong>
+
+              <span>
+                TRAINING SESSIONS
+              </span>
+
+            </div>
+
+
+            <div class="card admin-card">
+
+              <div class="eyebrow">
+                SYSTEM
+              </div>
+
+              <strong class="online-text">
+                ONLINE
+              </strong>
+
+              <span>
+                ALL FRONTEND MODULES READY
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="card admin-console">
+
+            <div class="panel-title">
+
+              <h3>
+                SYSTEM CONSOLE
+              </h3>
+
+              <span>
+                LOCAL
+              </span>
+
+            </div>
+
+
+            <div
+              id="adminLog"
+              class="admin-log"
+            >
+
+              <div>
+                <span>[BOOT]</span>
+                AetherForge interface initialized.
+              </div>
+
+              <div>
+                <span>[AUTH]</span>
+                Local demonstration session active.
+              </div>
+
+              <div>
+                <span>[API]</span>
+                Frontend fallback API ready.
+              </div>
+
+            </div>
+
+
+            <div class="admin-actions">
+
+              <button
+                class="btn btn-small"
+                type="button"
+                onclick="runSystemCheck()"
+              >
+                RUN SYSTEM CHECK
+              </button>
+
+              <button
+                class="btn btn-small"
+                type="button"
+                onclick="exportForgeData()"
+              >
+                EXPORT DATA
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer class="footer">
+
+      <div class="container footer-inner">
+
+        <div>
+
+          <div class="brand footer-brand">
+
+            <span class="brand-mark">
+              ⚡
+            </span>
+
+            <span class="brand-text">
+              AETHER<span>FORGE</span>
+            </span>
+
+          </div>
+
+          <p>
+            Forge your limits. Build your system.
+          </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+          <button
+            type="button"
+            onclick="showPage('home')"
+          >
+            HOME
+          </button>
+
+          <button
+            type="button"
+            onclick="showPage('dashboard')"
+          >
+            DASHBOARD
+          </button>
+
+          <button
+            type="button"
+            onclick="showPage('coach')"
+          >
+            AI COACH
+          </button>
+
+          <button
+            type="button"
+            onclick="showPage('profile')"
+          >
+            PROFILE
+          </button>
+
+        </div>
+
+
+        <div class="footer-copy">
+
+          ©
+          <span id="currentYear">
+            2026
+          </span>
+          AETHERFORGE
+
+        </div>
+
+      </div>
+
+    </footer>
+
+
+  </div>
+
+
+  <!-- =========================================================
+       MODAL
+  ========================================================== -->
+
+  <div
+    id="modal"
+    class="modal"
+    aria-hidden="true"
+  >
+
+    <div
+      class="modal-backdrop"
+      onclick="closeModal()"
+    ></div>
+
+    <div
+      class="modal-box"
+      role="dialog"
+      aria-modal="true"
+    >
+
+      <button
+        class="modal-close"
+        type="button"
+        onclick="closeModal()"
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      <div
+        id="modalContent"
+        class="modal-content"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       TOAST
+  ========================================================== -->
+
+  <div
+    id="toast"
+    class="toast"
+    role="status"
+    aria-live="polite"
+  >
+    <span id="toastIcon">
+      ⚡
+    </span>
+
+    <span id="toastMessage">
+      System ready.
+    </span>
+
+  </div>
+
+
+  <!-- =========================================================
+       MOBILE NAV OVERLAY
+  ========================================================== -->
+
+  <div
+    id="mobileNavOverlay"
+    class="mobile-nav-overlay"
+    onclick="toggleMenu()"
+  >
+
+    <div
+      class="mobile-nav-panel"
+      onclick="event.stopPropagation()"
+    >
+
+      <div class="mobile-nav-header">
+
+        <strong>
+          AETHERFORGE
+        </strong>
+
+        <button
+          type="button"
+          onclick="toggleMenu()"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <button
+        type="button"
+        onclick="mobileNavigate('home')"
+      >
+        HOME
+      </button>
+
+      <button
+        type="button"
+        onclick="mobileNavigate('dashboard')"
+      >
+        DASHBOARD
+      </button>
+
+      <button
+        type="button"
+        onclick="mobileNavigate('calisthenics')"
+      >
+        CALISTHENICS
+      </button>
+
+      <button
+        type="button"
+        onclick="mobileNavigate('dojo')"
+      >
+        DOJO
+      </button>
+
+      <button
+        type="button"
+        onclick="mobileNavigate('coach')"
+      >
+        AI COACH
+      </button>
+
+      <button
+        type="button"
+        onclick="mobileNavigate('roadmap')"
+      >
+        ROADMAP
+      </button>
+
+      <button
+        type="button"
+        onclick="mobileNavigate('nutrition')"
+      >
+        NUTRITION
+      </button>
+
+      <button
+        type="button"
+        onclick="mobileNavigate('leaderboard')"
+      >
+        LEADERBOARD
+      </button>
+
+      <button
+        type="button"
+        onclick="mobileNavigate('shop')"
+      >
+        SHOP
+      </button>
+
+      <button
+        type="button"
+        onclick="mobileNavigate('profile')"
+      >
+        PROFILE
+      </button>
+
+      <button
+        type="button"
+        onclick="mobileNavigate('admin')"
+      >
+        ADMIN
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       SCRIPTS
+       app.js contains ALL JavaScript functionality.
+  ========================================================== -->
+
+  <script src="app.js"></script>
+
+</body>
+</html>
